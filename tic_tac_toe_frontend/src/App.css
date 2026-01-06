@@ -165,6 +165,199 @@
   margin-top: 16px;
 }
 
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.metaPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(17, 24, 39, 0.03);
+  color: var(--muted);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.metaPill.isError {
+  color: #b91c1c;
+  border-color: rgba(239, 68, 68, 0.32);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.onlinePanel {
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.05), rgba(255, 255, 255, 0.95));
+}
+
+.onlineRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--muted);
+}
+
+.textInput {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  background: #ffffff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  outline: none;
+  transition: box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.textInput:focus {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: var(--focus);
+}
+
+.textInput:disabled {
+  background: rgba(17, 24, 39, 0.04);
+  color: rgba(17, 24, 39, 0.55);
+}
+
+.onlineButtons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btnSecondary {
+  appearance: none;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  border-radius: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 750;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.btnSecondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+  background: rgba(37, 99, 235, 0.10);
+}
+
+.btnSecondary:active {
+  transform: translateY(0px);
+}
+
+.btnPrimarySmall {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--primary), #1d4ed8);
+  color: #ffffff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.20);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.btnPrimarySmall:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.26);
+}
+
+.btnPrimarySmall:active {
+  transform: translateY(0px);
+}
+
+.btnGhost {
+  appearance: none;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(17, 24, 39, 0.78);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 750;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.btnGhost:hover {
+  transform: translateY(-1px);
+  background: rgba(17, 24, 39, 0.03);
+  box-shadow: 0 12px 24px rgba(17, 24, 39, 0.08);
+}
+
+.btnGhost:active {
+  transform: translateY(0px);
+}
+
+.shareRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.shareLabel {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.shareLink {
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.shareLink:hover {
+  text-decoration: underline;
+}
+
+.hintText {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
 .btnPrimary {
   appearance: none;
   border: none;
