@@ -39,7 +39,8 @@ function calculateWinner(board) {
 function generateSessionCode() {
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let out = "";
-  for (let i = 0; i < 6; i += 1) out += alphabet[Math.floor(Math.random() * alphabet.length)];
+  for (let i = 0; i < 6; i += 1)
+    out += alphabet[Math.floor(Math.random() * alphabet.length)];
   return out;
 }
 
@@ -99,12 +100,18 @@ class SignalingClient {
 
       const handleOpen = () => {
         this.isConnected = true;
-        this._emitStatus({ state: "connected", message: "Signaling connected" });
+        this._emitStatus({
+          state: "connected",
+          message: "Signaling connected",
+        });
         resolve();
       };
 
       const handleError = () => {
-        this._emitStatus({ state: "error", message: "Signaling connection error" });
+        this._emitStatus({
+          state: "error",
+          message: "Signaling connection error",
+        });
         reject(new Error("WebSocket connection error"));
       };
 
@@ -113,7 +120,10 @@ class SignalingClient {
 
       this.ws.addEventListener("close", () => {
         this.isConnected = false;
-        this._emitStatus({ state: "disconnected", message: "Signaling disconnected" });
+        this._emitStatus({
+          state: "disconnected",
+          message: "Signaling disconnected",
+        });
       });
 
       this.ws.addEventListener("message", (ev) => {
@@ -136,7 +146,10 @@ class SignalingClient {
         }
       });
 
-      this._emitStatus({ state: "connecting", message: "Connecting to signaling..." });
+      this._emitStatus({
+        state: "connecting",
+        message: "Connecting to signaling...",
+      });
     });
   }
 
@@ -287,7 +300,10 @@ class WebRtcPeer {
 
     this.pc.addEventListener("icecandidate", (ev) => {
       if (ev.candidate) {
-        this.signaling.sendSignal({ type: "candidate", candidate: ev.candidate });
+        this.signaling.sendSignal({
+          type: "candidate",
+          candidate: ev.candidate,
+        });
       }
     });
 
@@ -391,7 +407,9 @@ function Game() {
 
   const [netStatus, setNetStatus] = useState({
     state: onlineAvailable ? "idle" : "unavailable",
-    message: onlineAvailable ? "Online mode available" : "Online mode not configured",
+    message: onlineAvailable
+      ? "Online mode available"
+      : "Online mode not configured",
   });
 
   // Refs for network objects (avoid re-instantiation across renders)
@@ -401,8 +419,14 @@ function Game() {
   // Prevent feedback loops when applying remote state
   const applyingRemoteRef = useRef(false);
 
-  const { winner, line: winningLine } = useMemo(() => calculateWinner(board), [board]);
-  const isDraw = useMemo(() => !winner && board.every((c) => c !== null), [winner, board]);
+  const { winner, line: winningLine } = useMemo(
+    () => calculateWinner(board),
+    [board],
+  );
+  const isDraw = useMemo(
+    () => !winner && board.every((c) => c !== null),
+    [winner, board],
+  );
 
   const statusText = useMemo(() => {
     // Minimal status rules: winner > draw > current player
@@ -450,7 +474,8 @@ function Game() {
 
     if (isOnline) {
       // Host plays X, guest plays O.
-      const myMark = onlineRole === "host" ? "X" : onlineRole === "guest" ? "O" : null;
+      const myMark =
+        onlineRole === "host" ? "X" : onlineRole === "guest" ? "O" : null;
       if (!myMark) return;
 
       const expectedMark = xIsNext ? "X" : "O";
@@ -508,7 +533,8 @@ function Game() {
   }, []);
 
   const applyRemoteState = (remote) => {
-    if (!remote || !Array.isArray(remote.board) || remote.board.length !== 9) return;
+    if (!remote || !Array.isArray(remote.board) || remote.board.length !== 9)
+      return;
 
     applyingRemoteRef.current = true;
     setBoard(remote.board.slice());
@@ -539,7 +565,10 @@ function Game() {
         await rtcRef.current?.handleSignal?.(payload);
       } catch {
         // If signaling messages fail, fall back to local gracefully.
-        setNetStatus({ state: "error", message: "P2P negotiation failed. Falling back to local." });
+        setNetStatus({
+          state: "error",
+          message: "P2P negotiation failed. Falling back to local.",
+        });
         cleanupOnline();
         setMode("local");
         setOnlineRole(null);
@@ -552,7 +581,10 @@ function Game() {
       try {
         await rtcRef.current?.start?.();
       } catch {
-        setNetStatus({ state: "error", message: "Could not start P2P. Falling back to local." });
+        setNetStatus({
+          state: "error",
+          message: "Could not start P2P. Falling back to local.",
+        });
         cleanupOnline();
         setMode("local");
         setOnlineRole(null);
@@ -562,7 +594,10 @@ function Game() {
     try {
       await signaling.connect();
     } catch {
-      setNetStatus({ state: "error", message: "Signaling unreachable. Falling back to local." });
+      setNetStatus({
+        state: "error",
+        message: "Signaling unreachable. Falling back to local.",
+      });
       cleanupOnline();
       setMode("local");
       setOnlineRole(null);
@@ -628,7 +663,9 @@ function Game() {
     setOnlineRole(null);
     setNetStatus({
       state: onlineAvailable ? "idle" : "unavailable",
-      message: onlineAvailable ? "Online mode available" : "Online mode not configured",
+      message: onlineAvailable
+        ? "Online mode available"
+        : "Online mode not configured",
     });
   };
 
@@ -654,7 +691,9 @@ function Game() {
               {modeLabel}
             </div>
             {onlineAvailable ? (
-              <div className={`metaPill ${netStatus.state === "error" ? "isError" : ""}`}>
+              <div
+                className={`metaPill ${netStatus.state === "error" ? "isError" : ""}`}
+              >
                 {netStatus.message}
               </div>
             ) : null}
@@ -668,7 +707,9 @@ function Game() {
                   <input
                     className="textInput"
                     value={sessionInput}
-                    onChange={(e) => setSessionInput(e.target.value.toUpperCase())}
+                    onChange={(e) =>
+                      setSessionInput(e.target.value.toUpperCase())
+                    }
                     placeholder="E.g. Q7K2ZP"
                     inputMode="text"
                     autoCapitalize="characters"
@@ -680,15 +721,27 @@ function Game() {
                 <div className="onlineButtons">
                   {!isOnline ? (
                     <>
-                      <button className="btnSecondary" type="button" onClick={handleCreateSession}>
+                      <button
+                        className="btnSecondary"
+                        type="button"
+                        onClick={handleCreateSession}
+                      >
                         Create
                       </button>
-                      <button className="btnPrimarySmall" type="button" onClick={handleJoinSession}>
+                      <button
+                        className="btnPrimarySmall"
+                        type="button"
+                        onClick={handleJoinSession}
+                      >
                         Join
                       </button>
                     </>
                   ) : (
-                    <button className="btnGhost" type="button" onClick={handleLeaveOnline}>
+                    <button
+                      className="btnGhost"
+                      type="button"
+                      onClick={handleLeaveOnline}
+                    >
                       Leave online
                     </button>
                   )}
@@ -730,8 +783,9 @@ function Game() {
 
         {isOnline ? (
           <p className="hintText">
-            Online mode uses a peer-to-peer connection. If it fails (network/ICE), the game will
-            fall back to local hotseat automatically.
+            Online mode uses a peer-to-peer connection. If it fails
+            (network/ICE), the game will fall back to local hotseat
+            automatically.
           </p>
         ) : null}
       </section>

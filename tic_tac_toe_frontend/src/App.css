@@ -7,7 +7,7 @@
   --text: #111827;
 
   --muted: rgba(17, 24, 39, 0.7);
-  --border: rgba(17, 24, 39, 0.10);
+  --border: rgba(17, 24, 39, 0.1);
 
   --shadow-sm: 0 6px 18px rgba(17, 24, 39, 0.08);
   --shadow-md: 0 14px 32px rgba(17, 24, 39, 0.12);
@@ -28,8 +28,16 @@
   place-items: center;
   padding: 28px 16px;
   background:
-    radial-gradient(900px 520px at 20% 20%, rgba(37, 99, 235, 0.14), transparent 60%),
-    radial-gradient(900px 520px at 90% 20%, rgba(245, 158, 11, 0.12), transparent 55%),
+    radial-gradient(
+      900px 520px at 20% 20%,
+      rgba(37, 99, 235, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 520px at 90% 20%,
+      rgba(245, 158, 11, 0.12),
+      transparent 55%
+    ),
     linear-gradient(180deg, var(--bg), #ffffff);
   color: var(--text);
 }
@@ -50,7 +58,14 @@
 }
 
 .statusTitle {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -70,7 +85,14 @@
     rgba(255, 255, 255, 0.86)
   );
   color: var(--text);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 600;
 }
@@ -79,7 +101,7 @@
   background: linear-gradient(
     180deg,
     rgba(245, 158, 11, 0.18),
-    rgba(255, 255, 255, 0.90)
+    rgba(255, 255, 255, 0.9)
   );
   border-color: rgba(245, 158, 11, 0.35);
 }
@@ -116,7 +138,10 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease,
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease,
     background 140ms ease;
   box-shadow: 0 1px 0 rgba(17, 24, 39, 0.06);
 }
@@ -124,7 +149,7 @@
 .square:hover {
   transform: translateY(-1px);
   border-color: rgba(37, 99, 235, 0.22);
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.10);
+  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.1);
 }
 
 .square:active {
@@ -133,17 +158,28 @@
 
 .square:focus-visible {
   outline: none;
-  box-shadow: var(--focus), 0 10px 20px rgba(17, 24, 39, 0.10);
+  box-shadow:
+    var(--focus),
+    0 10px 20px rgba(17, 24, 39, 0.1);
 }
 
 .squareValue {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: clamp(34px, 6.2vw, 54px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1;
   transform: translateY(-1px);
-  transition: transform 140ms ease, color 140ms ease;
+  transition:
+    transform 140ms ease,
+    color 140ms ease;
 }
 
 .square.isX .squareValue {
@@ -182,7 +218,14 @@
   border: 1px solid var(--border);
   background: rgba(17, 24, 39, 0.03);
   color: var(--muted);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 12px;
   font-weight: 650;
 }
@@ -198,7 +241,11 @@
   padding: 12px;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(37, 99, 235, 0.05), rgba(255, 255, 255, 0.95));
+  background: linear-gradient(
+    180deg,
+    rgba(37, 99, 235, 0.05),
+    rgba(255, 255, 255, 0.95)
+  );
 }
 
 .onlineRow {
@@ -225,13 +272,22 @@
   border-radius: 12px;
   border: 1px solid rgba(17, 24, 39, 0.16);
   background: #ffffff;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 650;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   outline: none;
-  transition: box-shadow 140ms ease, border-color 140ms ease;
+  transition:
+    box-shadow 140ms ease,
+    border-color 140ms ease;
 }
 
 .textInput:focus {
@@ -258,16 +314,26 @@
   cursor: pointer;
   background: rgba(37, 99, 235, 0.08);
   color: var(--primary);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 750;
-  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease;
 }
 
 .btnSecondary:hover {
   transform: translateY(-1px);
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
-  background: rgba(37, 99, 235, 0.10);
+  background: rgba(37, 99, 235, 0.1);
 }
 
 .btnSecondary:active {
@@ -282,11 +348,21 @@
   cursor: pointer;
   background: linear-gradient(180deg, var(--primary), #1d4ed8);
   color: #ffffff;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 800;
-  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.20);
-  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.2);
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease;
 }
 
 .btnPrimarySmall:hover {
@@ -307,10 +383,20 @@
   cursor: pointer;
   background: transparent;
   color: rgba(17, 24, 39, 0.78);
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 750;
-  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease;
 }
 
 .btnGhost:hover {
@@ -368,12 +454,22 @@
 
   background: linear-gradient(180deg, var(--primary), #1d4ed8);
   color: #ffffff;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: 700;
 
   box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
-  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease;
 }
 
 .btnPrimary:hover {
@@ -388,7 +484,9 @@
 
 .btnPrimary:focus-visible {
   outline: none;
-  box-shadow: var(--focus), 0 14px 30px rgba(37, 99, 235, 0.28);
+  box-shadow:
+    var(--focus),
+    0 14px 30px rgba(37, 99, 235, 0.28);
 }
 
 /* Slightly tighter layout on very small screens */
